@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display:ital@1&display=swap');
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: 2px solid transparent;
+	outline-offset: 0px;
+	font-family: 'Libre Baskerville', serif;
+	color: #a2a1aa;
+}
+
+*:focus-visible {
+	color: var(--primary-violet-lighter) !important;
+	outline: 2px solid var(--primary-violet-lighter);
+	outline-offset: 1px;
+}
+
+body {
+	--primary-red: #ee4850;
+	--primary-blue: rgb(80, 144, 228);
+	/* --primary-green: #818cf8; */
+	--primary-green: #6ee7dd;
+	--primary-violet: #5448ee;
+	--primary-violet-lighter: #818cf8;
+	--primary-violet-darker: #372eb3;
+	--violet1: #7c85d4;
+	--violet2: #737dd3;
+	--violet3: #636dc9;
+	--backdrop-dark-blue: #202035;
+	--backdrop-medium-blue: #5c5183;
+	--dark-blue1: #333b64;
+	--dark-blue2: #46537c;
+
+	/* background-color: #11111a; */
+	background: url(../background2.jpg);
+	background-size: cover;
+	/* background: radial-gradient(circle farthest-side, #22222a, #202035); */
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+::selection {
+	background-color: var(--primary-violet);
+	color: #ddd;
+}
+
+#root {
+	padding: 2rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* gap: 2.5rem; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+header, main, footer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+footer {
+	margin-top: 1.5rem;
+}
+
+p.intro {
+	font-family: 'Playfair Display', serif;
+	font-style: italic;
+}
+
+.error-boundary {
+	display: flex;
+	gap: 2rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+.error-image {
+	width: 40rem;
+	height: 20rem;
+	background-image: url("/public/images/liszt_picture.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	filter: contrast(0.85);
+	-webkit-filter: contrast(0.85);
+}
+
+/* Music Sheet */
+
+.sheet-cont {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: -11rem calc(50% - 50vw);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	/* background-color: #11111aab; */
+	overflow: auto;
+	z-index: 200;
+}
+
+.sheet-cont.closed {
+	visibility: hidden;
+}
+
+.sheet-cont.closed .modal-bg {
+	background-color: transparent;
+}
+
+.sheet-cont.closed .sheet {
+	opacity: 0;
+	transform: scale(0.95);
+	-webkit-transform: scale(0.95);
+	-moz-transform: scale(0.95);
+	-ms-transform: scale(0.95);
+	-o-transform: scale(0.95);
+}
+
+.sheet-cont.open {
+	visibility: visible;
+}
+
+.sheet {
+	position: relative;
+	background-color: white;
+	box-shadow: rgba(65, 65, 117, 0.25) 0px 50px 100px -20px, rgba(127, 130, 148, 0.3) 0px 30px 60px -30px;
+	z-index: 250;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+}
+
+.modal-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #11111aab;
+	z-index: 150;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+}
